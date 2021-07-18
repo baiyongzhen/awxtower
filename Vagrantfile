@@ -18,11 +18,11 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     host.vm.network :private_network, ip: "192.168.56.170"
     host.vm.provision :shell, path: "scripts/debian_bootstrap.sh"
     # boot timeout
-    host.vm.boot_timeout = 120
+    # host.vm.boot_timeout = 120
 
     # Set system settings
     host.vm.provider :virtualbox do |vb|
-        vb.customize ["modifyvm", :id, "--memory", "2048"]
+        vb.customize ["modifyvm", :id, "--memory", "4096"]
         vb.customize ["modifyvm", :id, "--cpus", "2"]
     end
   end
