@@ -22,7 +22,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
     # Set system settings
     host.vm.provider :virtualbox do |vb|
-        vb.customize ["modifyvm", :id, "--memory", "4096"]
+        vb.customize ["modifyvm", :id, "--memory", "3072"]
         vb.customize ["modifyvm", :id, "--cpus", "2"]
     end
   end
