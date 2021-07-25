@@ -1,0 +1,21 @@
+version: '3'
+services:
+  jenkins:
+    build:
+      context: .
+    container_name: jenkins
+    ports:
+      - "8080:8080"
+    user: root
+    privileged: true
+    restart: unless-stopped
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /opt/jenkins:/var/jenkins_home
+    environment:
+      - JENKINS_USER=admin
+      - JENKINS_PASS=admin
+
+networks:
+    jenkins:
+      driver: bridge
